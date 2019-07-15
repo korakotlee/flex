@@ -185,7 +185,7 @@ class CenteredText extends StatelessWidget {
                 child: new Text(
                   "Welcome to the new Freedom",
                   style: TextStyle(
-                      color: Colors.pinkAccent, fontWeight: FontWeight.w200),
+                      color: Colors.pinkAccent, fontStyle: FontStyle.italic ,fontWeight: FontWeight.w400),
                   textScaleFactor: 4,
                 ),
                 onTap: () =>
