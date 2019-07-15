@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:html' as html;
 
 import 'package:flutter_web/material.dart';
 import 'package:flex/simple_animations_package.dart';
@@ -161,44 +162,49 @@ class CenteredText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-      children: [Center(
+    return ListView(padding: EdgeInsets.fromLTRB(0, 20, 0, 50), children: [
+      Center(
         child: Column(
           children: <Widget>[
             Image('flex.png', width: 190, height: 118),
             Text(
               "Be Love",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
               textScaleFactor: 4,
             ),
-            Image('couple.jpg', width: MediaQuery.of(context).size.width*.8),
+            Image('couple.jpg', width: MediaQuery.of(context).size.width * .8),
             Text(
               "Be Flex",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
               textScaleFactor: 4,
             ),
-            Image('cycling.jpg', width: MediaQuery.of(context).size.width*.8),
-            Text(
-              "Welcome to the new era of Freedom",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
-              textScaleFactor: 4,
-            ),
+            Image('cycling.jpg', width: MediaQuery.of(context).size.width * .8),
+            InkWell(
+                child: new Text(
+                  "Welcome to the new Freedom",
+                  style: TextStyle(
+                      color: Colors.pinkAccent, fontWeight: FontWeight.w200),
+                  textScaleFactor: 4,
+                ),
+                onTap: () =>
+                    html.window.location.replace('http://flexfits.com/')),
           ],
         ),
-      ), ]
-    );
+      ),
+    ]);
   }
 }
 
 Widget Image(img, {width = 800.0, height = 500.0}) {
   return Container(
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                alignment: Alignment.topLeft,
-                image: AssetImage(img))),
-        );
+    width: width,
+    height: height,
+    decoration: BoxDecoration(
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            alignment: Alignment.topLeft,
+            image: AssetImage(img))),
+  );
 }
